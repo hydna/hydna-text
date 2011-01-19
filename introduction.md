@@ -15,11 +15,11 @@ written in JavaScript, they are transferable to other programming languages.
 Example of a bi-directional JavaScript client:
 
     :::javascript
-    var con = hydna.open('<customer>.hydna.net/1234', 'rw');
-    con.addListener('data', function(data) {
+    var stream = hydna.open('demo.hydna.net/1234', 'rw');
+    stream.ondata('data', function(data) {
         // alert('data received on stream address 1234!');
     });
-    con.send('data!');
+    stream.write('Hello, me!');
 
 ## Key Concepts
 
