@@ -5,14 +5,14 @@ send and receive messages in real-time. A large set of interfaces and client
 libraries makes communication across platforms (browsers, operative systems)
 and devices (computers, handhelds, smartphones) trivial.
 
-## Compatibility
+Real-time-enabling your site or application is the matter of including a
+client library and writing a few lines of code; we take care of everything
+related to servers, scaling and maintenance.
 
-Hydna is compatible with almost any Internet-connected device that exists.
+*Note*: most all of the examples in the documentation section are written in
+JavaScript, they are all transferable to other programming languages.
 
-Note: most all of the examples in the documentation section are writte in
-JavaScript, there are all transferable to other programming languages.
-
-Example:
+Example of a bi-directional JavaScript client:
 
     var con = hydna.open('<customer>.hydna.net/1234', 'rw');
     con.addListener('data', function(data) {
@@ -20,20 +20,21 @@ Example:
     });
     con.send('data!');
 
-Whether it's a website, a native application, a shell script or an iPhone app,
-you can leverage the power of Hydna to real-time enable your project.
-
-## Structure
-
-Hydna is a distributed server that we host and to which we supply client
-libraries.
-
 ## Key Concepts
+
+These are a few of the concepts -- or components -- of Hydna a developer
+should be familiar with.
 
 ### Streams
 
+A stream is a connection to Hydna that can be used to send and receive
+messages (it can also be used to send and receive signals, more about that
+below).
+
 Streams are identified by a URI (hostname + stream address). Can be opened in
 R, W or E mode.
+
+### Messages
 
 ### Behaviors
 
@@ -65,4 +66,3 @@ as using Web Sockets) and it's up to the client library developer to choose
 the right transport. In some cases multiple transports might be needed -- the
 JavaScript implementation, for instance, automatically detects if it should
 use WebSockets, Flash or HTTP Longpolling.
-
