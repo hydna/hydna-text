@@ -65,9 +65,8 @@ clients plan -- or are allowed to -- do over them:
 - `emit` mode implies the ability to emit signals over the stream.
 
 **Note**: generally only the first letter of a mode is used when it is
-referenced, not much unlike filesystem permissions.
-
-`r` denotes `read`, `w` denotes `write` and `e` denotes `emit`.
+referenced, not much unlike filesystem permissions. `r` denotes `read`, `w`
+denotes `write` and `e` denotes `emit`.
 
 Modes can also be combined; a stream can be opened in `rw` mode for example.
 
