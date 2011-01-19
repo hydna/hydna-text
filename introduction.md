@@ -42,14 +42,12 @@ Streams are typically recognized as a *URI* following the format:
 
 You encountered the *URI* `demo.hydna.net/1234` in the example above. 
 
-
-Apple
-:   Pomaceous fruit of plants of the genus Malus in 
-    the family Rosaceae.
-
-Orange
-:   The fruit of an evergreen tree of the genus Citrus.
-
+- `<host>` is the host you connect to and you're supplied with one when you
+  sign up for an account.
+- `[:port]` is the port on which connections are established (default: 80, you
+  should typically never need to specify a different port).
+- `[/stream address]` address of the *stream* that is being opened. Addresses
+  are represented as 32-bit integers (default: 1).
 
 ### Behaviors
 
