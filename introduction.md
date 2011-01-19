@@ -28,27 +28,35 @@ should be familiar with.
 
 ### Streams
 
-A stream is a connection to Hydna that can be used to send and receive
-messages (it can also be used to send and receive signals, more about that
-below).
+Hydna is built around the concept of *streams*. A stream is a connection
+identified by an *address* that can be used to send and receive messages (it
+can also be used to send and receive signals, more about that below).
 
-Streams are identified by a URI (hostname + stream address). Can be opened in
-R, W or E mode.
+An important distinction to make is that a stream is synonymous with a
+connection; there can be hundreds of open streams over the same connection.
 
-### Messages
+Streams are typically recognized as a *URI* following the format:
+
+    <host>[:port][/stream address][?token]
+
+You encountered the *URI* `demo.hydna.net/1234` in the example above. 
 
 ### Behaviors
 
-Behaviors are one of the pillarstones of Hydna. 
+Behaviors are one of the pillarstones of Hydna and can be used to set up
+rules for how Hydna should behave when streams are opened or when signals
+are dispatched.
+
+Standard library. Plugins.
 
 Behaviors are powerful. No need to write a server. Can be used for logging,
 authentication, backend plugins etc.
 
 ### Transports
 
-A transport is a means of communicating over Hydna. There are a few different
-transports clients can use to exchange messages over Hydna; each with
-slightly different traits:
+A transport is a means of transfering data over Internet. There are a few
+different transports clients can use to exchange messages over Hydna; each
+with their individual traits:
 
 - Hermes Binary Protocol (fast, not supported in browsers without using Flash)
 - Web Sockets (fast, not supported by all browsers and devices)
@@ -56,14 +64,15 @@ slightly different traits:
 - HTTP REST (limited to pushing, but extremly easy to implement without a
   client library)
 
-The transport layer should be mostly transparent to "regular" developers (if
-you use a client library, the choice of transport has already been made), but
-it's an important feature of Hydna that you should be aware of.
+Which transport layer is used will be mostly transparent to most developers
+(if you use a client library, the choice of transport has already been made),
+but it's an important architectural feature that developers should be aware
+of.
 
-Which transport to use depends on the nature of the application (WebSockets
-are great and can use a Flash-fallback, but neither works in popular Apple
-devices. Longpolling works with almost any HTTP agent, but is not as efficient
-as using Web Sockets) and it's up to the client library developer to choose
-the right transport. In some cases multiple transports might be needed -- the
-JavaScript implementation, for instance, automatically detects if it should
-use WebSockets, Flash or HTTP Longpolling.
+The characteristics of the environment determines which transport is most
+suitable (WebSockets are great and can use a Flash-fallback, but neither works
+in popular Apple devices. Longpolling works with almost any HTTP agent, but is
+not as efficient as using Web Sockets) and it's up to the client library
+developer to choose the right transport. In some cases multiple transports
+might be needed -- the JavaScript implementation, for instance, automatically
+detects if it should use native Web Sockets, Flash or HTTP Longpolling.
