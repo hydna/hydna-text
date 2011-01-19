@@ -19,8 +19,9 @@ host your own local copy.
 
 ## 2. Open a stream
 
-Now open a stream in `rw` (read and write) mode. This is done using your
-*domain* and a *stream address*.
+Now open a stream in `rw` (read and write) mode. You should replace the
+*domain* and *stream address* (*demo.hydna.net* and *1235* respectively) used
+below with your own.
 
     :::javascript
     var stream = new HydnaStream('demo.hydna.net/1235', 'rw');
