@@ -5,11 +5,28 @@ send and receive messages in real-time. A large set of interfaces and client
 libraries makes communication across platforms (browsers, operative systems)
 and devices (computers, handhelds, smartphones) trivial.
 
-Whether it's a website, a native application, a shell script or an iPhone app,
-you can leverage the power of Hydna to real-time enable your vision.
+## Compatibility
 
-You can use Hydna to enhance existing projects, or build entirely new concepts
-on the platform.
+Hydna is compatible with almost any Internet-connected device that exists.
+
+Note: most all of the examples in the documentation section are writte in
+JavaScript, there are all transferable to other programming languages.
+
+Example:
+
+    var con = hydna.open('<customer>.hydna.net/1234', 'rw');
+    con.addListener('data', function(data) {
+        // alert('data received on stream address 1234!');
+    });
+    con.send('data!');
+
+Whether it's a website, a native application, a shell script or an iPhone app,
+you can leverage the power of Hydna to real-time enable your project.
+
+## Structure
+
+Hydna is a distributed server that we host and to which we supply client
+libraries.
 
 ## Key Concepts
 
@@ -20,11 +37,32 @@ R, W or E mode.
 
 ### Behaviors
 
+Behaviors are one of the pillarstones of Hydna. 
+
 Behaviors are powerful. No need to write a server. Can be used for logging,
 authentication, backend plugins etc.
 
 ### Transports
 
-Wink, REST, WebSockets, Longpolling ...
+A transport is a means of communicating over Hydna. There are a few different
+transports clients can use to exchange messages over Hydna; each with
+slightly different traits:
 
-Wink binary protocol. See spec. Simple to leverage the full potential.
+- Hermes Binary Protocol (fast, not supported in browsers without using Flash)
+- Web Sockets (fast, not supported by all browsers and devices)
+- HTTP Longpolling (slightly slower but compatible with almost anything)
+- HTTP REST (limited to pushing, but extremly easy to implement without a
+  client library)
+
+The transport layer should be mostly transparent to "regular" developers (if
+you use a client library, the choice of transport has already been made), but
+it's an important feature of Hydna that you should be aware of.
+
+Which transport to use depends on the nature of the application (WebSockets
+are great and can use a Flash-fallback, but neither works in popular Apple
+devices. Longpolling works with almost any HTTP agent, but is not as efficient
+as using Web Sockets) and it's up to the client library developer to choose
+the right transport. In some cases multiple transports might be needed -- the
+JavaScript implementation, for instance, automatically detects if it should
+use WebSockets, Flash or HTTP Longpolling.
+
