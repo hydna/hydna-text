@@ -37,8 +37,7 @@ An important distinction to make is that a stream is not synonymous with a
 connection; there can be hundreds of open streams over the same connection.
 
 Streams are typically recognized as a *URI* following the format:
-
-    <host>[:port][/stream address][?token]
+`<host>[:port][/stream address][?token]`.
 
 You encountered the *URI* `demo.hydna.net/1234` in the example above. 
 
