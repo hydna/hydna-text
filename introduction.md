@@ -58,9 +58,9 @@ addresses are unique per *domain*.
 Streams can be opened in three major *modes* depending on what connecting
 clients plan -- or are allowed to -- do over them:
 
-- Read (`r`): can read messages sent over the stream.
-- Write (`w`): can write messages to the stream.
-- Emit (`e`): can emit signals.
+- Read: ability to read messages sent over the stream.
+- Write: ability to write messages to the stream.
+- Emit: ability to emit signals over the stream.
 
 Modes can also be combined; a stream can be opened as `rw`, `re` or `rwe` for
 example.
