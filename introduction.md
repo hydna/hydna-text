@@ -82,9 +82,20 @@ You encountered the *URI* `demo.hydna.net/1234` in the example above.
 
 ### Architecture
 
-Transport proxies. Behaviour instances.
+*Transport proxies* are responsible for receiving, routing and transporting
+messages.
+
+*Behaviour instances* are allocated per *domain* and are responsible for
+keeping states, closing streams, denying or authorizing specific uses of
+streams, dealing with signals and more.
+
+Read more about the architecture.
 
 ### Signals
+
+Signals are much like regular messages, but are sent to the *behavior
+instance* instead of being routed to other clients listening for data on a
+stream.
 
 ### Behaviors
 
