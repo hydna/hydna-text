@@ -5,7 +5,7 @@ In this example we'll be creating a simple chat.
 ## Include the JavaScript library
 
     :::html
-    <script src="http://static.hydna.net/js/hydna.js">
+    <script type="text/javascript" src="http://static.hydna.net/js/hydna.js">
 
 ## Connect to Hydna
 
