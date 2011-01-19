@@ -37,16 +37,14 @@ can also be used to send and receive signals, more about that below).
 An important distinction to make is that a stream is not synonymous with a
 connection; there can be hundreds of open streams over the same connection.
 
-Clients typically communicate by sending and receiving messages from the same
-stream.
-
 When you open a stream you need supply a few parameters: a *domain*, a
 *stream address* and the mode in which you wish to open the stream.
 
 #### Domains
 
-A *domain* is an identifier for your "zone" in Hydna. It's also, incidentally
-a real fully qualified domain name to which a connection will be made.
+A *domain* is an identifier for a isolated "zone" in Hydna. It's also,
+incidentally, a fully qualified domain name to which a connection will be
+made.
 
 #### Stream Address
 
@@ -54,14 +52,17 @@ A *Stream address* is a seemingly random number in the range 1-4294967295 that
 is used to uniquely identify a stream (much like ipv4 addresses). The
 addresses are unique per *domain*.
 
+Clients typically communicate by sending and receiving messages to and from
+the same stream on the same domain.
+
 #### Mode
 
 Streams can be opened in three major *modes* depending on what connecting
 clients plan -- or are allowed to -- do over them:
 
-- Read: ability to read messages sent over the stream.
-- Write: ability to write messages to the stream.
-- Emit: ability to emit signals over the stream.
+- `read` mode implies the ability to read messages sent over the stream.
+- `write` mode implies the ability to write messages to the stream.
+- `emit` mode implies the ability to emit signals over the stream.
 
 Modes can also be combined; a stream can be opened as `rw`, `re` or `rwe` for
 example.
@@ -70,16 +71,10 @@ Open streams will always receive signals, regardless of mode.
 
 #### URIs
 
-Streams are typically recognized as a *URI* following the format:
+Streams are typically recognized as a *URI* following the format 
 `<host>[:port][/stream address][?token]`.
 
 You encountered the *URI* `demo.hydna.net/1234` in the example above. 
-
-- `<host>` is the host you connect to. You're supplied with one when you
-  sign up for an account.
-- `[:port]` is the port on which connections are established (default: 80, you
-  should typically never need to specify a different port).
-- `[/stream address]` address of the *stream* that is being opened. Addresses
 
 ### Architecture
 
