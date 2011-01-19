@@ -9,8 +9,8 @@ Real-time-enabling your site or application is the matter of including a
 client library and writing a few lines of code; we take care of everything
 related to servers, scaling and maintenance.
 
-*Note*: most all of the examples in the documentation section are written in
-JavaScript, they are all transferable to other programming languages.
+*Note*: while most all of the examples in the documentation section are
+written in JavaScript, they are transferable to other programming languages.
 
 Example of a bi-directional JavaScript client:
 
