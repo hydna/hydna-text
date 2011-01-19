@@ -47,13 +47,23 @@ You encountered the *URI* `demo.hydna.net/1234` in the example above.
 - `[:port]` is the port on which connections are established (default: 80, you
   should typically never need to specify a different port).
 - `[/stream address]` address of the *stream* that is being opened. Addresses
-  are represented as 32-bit integers (default: 1).
+  are decimal integers in the range 1-4294967295 (default: 1).
+
+Streams can be opened in different *modes* depending on what connecting
+clients plan -- or are allowed to -- do over them:
+
+- Read
+- Write
+- Emit
 
 ### Behaviors
 
 Behaviors are one of the pillarstones of Hydna and can be used to set up
 rules for how Hydna should behave when streams are opened or when signals
-are dispatched.
+are dispatched. While the most typical use-cases can be run without involving
+behaviours, they can be used to unlock great control and enhancement.
+
+Every account on Hydna has a behaviour-instance associated with it.
 
 Standard library. Plugins.
 
@@ -72,10 +82,9 @@ with their individual traits:
 - HTTP REST (limited to pushing, but extremly easy to implement without a
   client library)
 
-Which transport layer is used will be mostly transparent to most developers
-(if you use a client library, the choice of transport has already been made),
-but it's an important architectural feature that developers should be aware
-of.
+Which transport layer is used will be transparent to most developers (if you
+use a client library, the choice of transport has already been made), but it's
+an important architectural feature that developers should be aware of.
 
 The characteristics of the environment determines which transport is most
 suitable (WebSockets are great and can use a Flash-fallback, but neither works
