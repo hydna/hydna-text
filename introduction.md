@@ -64,8 +64,12 @@ clients plan -- or are allowed to -- do over them:
 - `write` mode implies the ability to write messages to the stream.
 - `emit` mode implies the ability to emit signals over the stream.
 
-Modes can also be combined; a stream can be opened as `rw`, `re` or `rwe` for
-example.
+**Note**: generally only the first letter of a mode is used when it is
+referenced, not much unlike filesystem permissions.
+
+`r` denotes `read`, `w` denotes `write` and `e` denotes `emit`.
+
+Modes can also be combined; a stream can be opened in `rw` mode for example.
 
 Open streams will always receive signals, regardless of mode.
 
