@@ -1,9 +1,9 @@
 # Introduction
 
-Hydna is a scalable, easy-to-use, hosted platform that enables developers to
+**Hydna is a scalable, easy-to-use, hosted platform that enables developers to
 send and receive messages in real-time. A large set of interfaces and client
 libraries makes communication across platforms (browsers, operative systems)
-and devices (computers, handhelds, smartphones) trivial.
+and devices (computers, handhelds, smartphones) trivial.**
 
 Real-time-enabling your site or application is the matter of including a
 client library and writing a few lines of code; we take care of everything
@@ -14,6 +14,7 @@ written in JavaScript, they are transferable to other programming languages.
 
 Example of a bi-directional JavaScript client:
 
+    :::javascript
     var con = hydna.open('<customer>.hydna.net/1234', 'rw');
     con.addListener('data', function(data) {
         // alert('data received on stream address 1234!');
