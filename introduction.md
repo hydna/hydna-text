@@ -41,7 +41,7 @@ Streams are typically recognized as a *URI* following the format:
 
 You encountered the *URI* `demo.hydna.net/1234` in the example above. 
 
-- `<host>` is the host you connect to and you're supplied with one when you
+- `<host>` is the host you connect to. You're supplied with one when you
   sign up for an account.
 - `[:port]` is the port on which connections are established (default: 80, you
   should typically never need to specify a different port).
@@ -51,9 +51,15 @@ You encountered the *URI* `demo.hydna.net/1234` in the example above.
 Streams can be opened in different *modes* depending on what connecting
 clients plan -- or are allowed to -- do over them:
 
-- Read
-- Write
-- Emit
+- Read (`r`): can read messages sent over the stream.
+- Write (`w`): can write messages to the stream.
+- Emit (`e`): can emit signals.
+
+### Architecture
+
+Transport proxies. Behaviour instances.
+
+### Signals
 
 ### Behaviors
 
