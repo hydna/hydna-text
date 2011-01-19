@@ -36,6 +36,25 @@ can also be used to send and receive signals, more about that below).
 An important distinction to make is that a stream is not synonymous with a
 connection; there can be hundreds of open streams over the same connection.
 
+When you open a stream you need supply a few parameters: a *domain*, a
+*stream address* and the mode in which you wish to open the stream.
+
+#### Domain
+
+#### Stream Address
+
+#### Mode
+
+Streams can be opened in different *modes* depending on what connecting
+clients plan -- or are allowed to -- do over them:
+
+- Read (`r`): can read messages sent over the stream.
+- Write (`w`): can write messages to the stream.
+- Emit (`e`): can emit signals.
+
+
+#### URIs
+
 Streams are typically recognized as a *URI* following the format:
 `<host>[:port][/stream address][?token]`.
 
@@ -47,13 +66,6 @@ You encountered the *URI* `demo.hydna.net/1234` in the example above.
   should typically never need to specify a different port).
 - `[/stream address]` address of the *stream* that is being opened. Addresses
   are decimal integers in the range 1-4294967295 (default: 1).
-
-Streams can be opened in different *modes* depending on what connecting
-clients plan -- or are allowed to -- do over them:
-
-- Read (`r`): can read messages sent over the stream.
-- Write (`w`): can write messages to the stream.
-- Emit (`e`): can emit signals.
 
 ### Architecture
 
