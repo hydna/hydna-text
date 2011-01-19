@@ -16,7 +16,7 @@ languages.
 Example of a bi-directional JavaScript client:
 
     :::javascript
-    var stream = hydna.open('demo.hydna.net/1234', 'rw');
+    var stream = new HydnaStream('demo.hydna.net/1234', 'rw');
     stream.ondata('data', function(data) {
         // alert('data received on stream address 1234!');
     });
@@ -33,7 +33,7 @@ Hydna is built around the concept of *streams*. A stream is a connection
 identified by an *address* that can be used to send and receive messages (it
 can also be used to send and receive signals, more about that below).
 
-An important distinction to make is that a stream is synonymous with a
+An important distinction to make is that a stream is not synonymous with a
 connection; there can be hundreds of open streams over the same connection.
 
 Streams are typically recognized as a *URI* following the format:
