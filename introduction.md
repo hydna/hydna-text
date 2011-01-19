@@ -9,8 +9,9 @@ Real-time-enabling your site or application is the matter of including a
 client library and writing a few lines of code; we take care of everything
 related to servers, scaling and maintenance.
 
-*Note*: while most all of the examples in the documentation section are
-written in JavaScript, they are transferable to other programming languages.
+**Note**: while most all of the examples in the documentation section are
+written in JavaScript, they should be transferable to other programming
+languages.
 
 Example of a bi-directional JavaScript client:
 
@@ -40,6 +41,15 @@ Streams are typically recognized as a *URI* following the format:
     <host>[:port][/stream address][?token]
 
 You encountered the *URI* `demo.hydna.net/1234` in the example above. 
+
+
+Apple
+:   Pomaceous fruit of plants of the genus Malus in 
+    the family Rosaceae.
+
+Orange
+:   The fruit of an evergreen tree of the genus Citrus.
+
 
 ### Behaviors
 
