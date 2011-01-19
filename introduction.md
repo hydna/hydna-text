@@ -36,22 +36,36 @@ can also be used to send and receive signals, more about that below).
 An important distinction to make is that a stream is not synonymous with a
 connection; there can be hundreds of open streams over the same connection.
 
+Clients typically communicate by sending and receiving messages from the same
+stream.
+
 When you open a stream you need supply a few parameters: a *domain*, a
 *stream address* and the mode in which you wish to open the stream.
 
-#### Domain
+#### Domains
+
+A *domain* is an identifier for your "zone" in Hydna. It's also, incidentally
+a real fully qualified domain name to which a connection will be made.
 
 #### Stream Address
 
+A *Stream address* is a seemingly random number in the range 1-4294967295 that
+is used to uniquely identify a stream (much like ipv4 addresses). The
+addresses are unique per *domain*.
+
 #### Mode
 
-Streams can be opened in different *modes* depending on what connecting
+Streams can be opened in three major *modes* depending on what connecting
 clients plan -- or are allowed to -- do over them:
 
 - Read (`r`): can read messages sent over the stream.
 - Write (`w`): can write messages to the stream.
 - Emit (`e`): can emit signals.
 
+Modes can also be combined; a stream can be opened as `rw`, `re` or `rwe` for
+example.
+
+Open streams will always receive signals, regardless of mode.
 
 #### URIs
 
@@ -65,7 +79,6 @@ You encountered the *URI* `demo.hydna.net/1234` in the example above.
 - `[:port]` is the port on which connections are established (default: 80, you
   should typically never need to specify a different port).
 - `[/stream address]` address of the *stream* that is being opened. Addresses
-  are decimal integers in the range 1-4294967295 (default: 1).
 
 ### Architecture
 
