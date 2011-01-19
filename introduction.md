@@ -24,8 +24,9 @@ Example of a bi-directional JavaScript client:
 
 ## Key Concepts
 
-These are a few of the concepts -- or components -- of Hydna a developer
-should be familiar with.
+A few of the key concepts -- or components -- of Hydna are outlined below.
+Developers should familiarize themselves with these concepts to featherbed 
+further adventures in the world of Hydna.
 
 ### Streams
 
