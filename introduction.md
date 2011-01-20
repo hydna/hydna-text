@@ -99,10 +99,11 @@ stream.
 
 ### Behaviors
 
-Behaviors are one of the pillarstones of Hydna and can be used to set up
-rules for how Hydna should behave when streams are opened or when signals
-are dispatched. While the most typical use-cases can be run without involving
-behaviours, they can be used to unlock great control and enhancement.
+Behaviors are one of the pillarstones of Hydna and can be used to set up rules
+for streams and how Hydna should behave when streams are opened or when
+signals are dispatched. While the most typical use-cases can be run without
+involving behaviours, they can be used to unlock great control and in many
+cases replace the need for hosting server logic.
 
 Every account on Hydna has a behaviour-instance associated with it.
 
@@ -115,12 +116,13 @@ authentication, backend plugins etc.
 
 A transport is a means of transfering data over Internet. There are a few
 different transports clients can use to exchange messages over Hydna; each
-with their individual traits:
+with their individual traits and foibles:
 
-- Hermes Binary Protocol (fast, not supported in browsers without using Flash)
-- Web Sockets (fast, not supported by all browsers and devices)
-- HTTP Longpolling (slightly slower but compatible with almost anything)
-- HTTP REST (limited to pushing, but extremly easy to implement without a
+- *Hermes Binary Protocol* (fast, not supported in browsers without using
+  Flash)
+- *Web Sockets* (fast, not supported by all browsers and devices)
+- *HTTP Comet* (slightly slower but compatible with almost anything)
+- *HTTP REST* (limited to pushing, but extremly easy to implement without a
   client library)
 
 Which transport layer is used will be transparent to most developers (if you
@@ -128,9 +130,10 @@ use a client library, the choice of transport has already been made), but it's
 an important architectural feature that developers should be aware of.
 
 The characteristics of the environment determines which transport is most
-suitable (WebSockets are great and can use a Flash-fallback, but neither works
-in popular Apple devices. Longpolling works with almost any HTTP agent, but is
-not as efficient as using Web Sockets) and it's up to the client library
-developer to choose the right transport. In some cases multiple transports
-might be needed -- the JavaScript implementation, for instance, automatically
-detects if it should use native Web Sockets, Flash or HTTP Longpolling.
+suitable (WebSockets are great and a Flash-fallback can be used, but neither
+works in popular Apple devices. Comet works with almost any HTTP client that
+supports JavaScript, but is not as efficient as using Web Sockets) and it's up
+to the client library developer to choose the right transport. In some cases
+multiple transports might be needed -- the JavaScript implementation, for
+instance, automatically detects if it should use native Web Sockets, Flash or
+HTTP Comet.

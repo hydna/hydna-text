@@ -1,6 +1,7 @@
 # Quick Start
 
 In this example we'll be creating a simple chat. 
+The easiest way to get started is with a real working example. 
 
 ## Prerequisites
 
@@ -28,7 +29,7 @@ below with your own.
 
 ## 3. Listen for messages
 
-Add a callback that will be called when data arrives on the stream.
+Add a callback that will be triggered as messages arrive on the stream.
 
     :::javascript
     stream.ondata(function(data) {
