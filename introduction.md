@@ -9,7 +9,7 @@ Real-time-enabling your site or application is the matter of including a
 client library and writing a few lines of code; there's no need to write
 or install server side software.
 
-The basic concept is that clients open bi-directional [streams](streams)
+The basic concept is that clients open bi-directional [streams](#streams)
 located at certain addresses and exchange messages. A prolific example would
 be a chat where clients would open a stream (`mychat.hydna.net/1234` for
 example). When a message is written to the stream, all clients that have
@@ -19,7 +19,8 @@ opened the same stream would receive it.
 written in JavaScript, they should be transferable to other programming
 languages.
 
-Example of a bi-directional JavaScript client:
+Example of a bi-directional JavaScript client using the [JavaScript Client
+Library](/cli/):
 
     :::javascript
     var stream = new HydnaStream('demo.hydna.net/1234', 'rw');
