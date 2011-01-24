@@ -5,35 +5,34 @@ send and receive messages in real-time. A large set of interfaces and client
 libraries makes communication across platforms (browsers, operative systems)
 and devices (computers, handhelds, smartphones) trivial.**
 
-Real-time-enabling your site or application is the matter of including a
-client library and writing a few lines of code; there's no need to write
-or install server side software.
+Real-time-enabling a site or application is the matter of including a client
+library and writing a few lines of code; there's no need to write or install
+server side software.
 
-The basic concept is that clients open bi-directional [streams](#streams)
-located at certain addresses and exchange messages. A prolific example would
-be a chat where clients would open a stream (`mychat.hydna.net/1234` for
-example). When a message is written to the stream, all clients that have
-opened the same stream would receive it.
+The basic concept is that clients open bi-directional [streams](#streams) and
+exchange messages. A prolific example would be a chat where clients would open
+a stream (`mychat.hydna.net` for example). When a message is written to the
+stream, all clients that have opened the same stream would receive it.
 
 **Note**: while most all of the examples in the documentation section are
 written in JavaScript, they should be transferable to other programming
 languages.
 
 Example of a bi-directional JavaScript client using the [JavaScript Client
-Library](/cli/):
+Library](/implementations/hydna-js/):
 
     :::javascript
-    var stream = new HydnaStream('demo.hydna.net/1234', 'rw');
+    var stream = new HydnaStream('demo.hydna.net', 'rw');
     stream.ondata('data', function(data) {
-        // alert('data received on stream address 1234!');
+        // alert('data received on stream!');
     });
     stream.write('Hello, me!');
 
 ## Key Concepts
 
 A few of the key concepts -- or components -- of Hydna are outlined below.
-Developers should familiarize themselves with these concepts to featherbed 
-further adventures in the world of Hydna.
+Developers should familiarize themselves with these concepts to featherbed
+further investigations.
 
 ### Streams
 
@@ -44,20 +43,20 @@ can also be used to send and receive signals, more about that below).
 An important distinction to make is that a stream is not synonymous with a
 connection; there can be hundreds of open streams over the same connection.
 
-When you open a stream you need supply a few parameters: a *domain*, a
-*stream address* and the mode in which you wish to open the stream.
+When you open a stream you need supply a few parameters: a *domain*, an
+optional *channel* and the mode in which you wish to open the stream.
 
-#### Domains
+#### Domain
 
 A *domain* is an identifier for a isolated "zone" in Hydna. It's also,
 incidentally, a fully qualified domain name to which a connection will be
 made.
 
-#### Stream Address
+#### Channel
 
-A *Stream address* is a seemingly random number in the range 1-4294967295 that
-is used to uniquely identify a stream (much like ipv4 addresses). The
-addresses are unique per *domain*.
+A *channel* is identified number in the range 1-4294967295 that is used to
+uniquely identify a stream (much like ipv4 addresses). The channel ids are
+unique per *domain*.
 
 Clients typically communicate by sending and receiving messages to and from
 the same stream on the same domain.
@@ -82,8 +81,8 @@ example.
 
 #### URIs
 
-Streams are typically recognized as a *URI* following the format 
-`<host>[:port][/stream address][?token]`.
+Streams are typically recognized as a *URI* following the format
+`<host>[:port][/channel][?token]`.
 
 You encountered the *URI* `demo.hydna.net/1234` in the example above. 
 
