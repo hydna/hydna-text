@@ -9,16 +9,17 @@ Real-time-enabling a site or application is the matter of including a client
 library and writing a few lines of code; there's no need to write or install
 server side software.
 
-The basic concept is that clients open bi-directional [streams](#streams) and
-exchange messages. A prolific example would be a chat where clients would open
-a stream (`mychat.hydna.net` for example). When a message is written to the
-stream, all clients that have opened the same stream would receive it.
+The basic concept is that clients open bi-directional
+[streams](#section-streams) and exchange messages. A prolific example would be
+a chat where clients would open a stream (`mychat.hydna.net` for example).
+When a message is written to the stream, all clients that have opened the same
+stream would receive it.
 
 **Note**: while most all of the examples in the documentation section are
 written in JavaScript, they should be transferable to other programming
 languages.
 
-Example of a bi-directional JavaScript client using the [JavaScript Client
+Example of a JavaScript client using the [JavaScript Client
 Library](/implementations/hydna-js/):
 
     :::javascript
@@ -46,22 +47,17 @@ connection; there can be hundreds of open streams over the same connection.
 When you open a stream you need supply a few parameters: a *domain*, an
 optional *channel* and the mode in which you wish to open the stream.
 
-#### Domain
+Streams are typically recognized as a *URI* following the format
+`<domain>[:port][/channel]`.
 
-A *domain* is an identifier for a isolated "zone" in Hydna. It's also,
-incidentally, a fully qualified domain name to which a connection will be
-made.
+You encountered the *URI* `demo.hydna.net/1234` in the example above. 
 
-#### Channel
-
-A *channel* is identified number in the range 1-4294967295 that is used to
-uniquely identify a stream (much like ipv4 addresses). The channel ids are
-unique per *domain*.
-
-Clients typically communicate by sending and receiving messages to and from
-the same stream on the same domain.
-
-#### Mode
+* A *domain* is an identifier for an isolated "zone" in Hydna. It's also,
+  incidentally, a fully qualified domain name to which a connection will be
+  made.
+* A *channel* is identified number in the range 1-4294967295 that is used to
+  uniquely identify a stream (much like ipv4 addresses). The channel ids are
+  unique per *domain*.
 
 Streams can be opened in three major *modes* depending on what connecting
 clients plan -- or are allowed to -- do over them:
@@ -79,44 +75,31 @@ example.
 
 **Note**: Open streams will always receive signals, regardless of mode.
 
-#### URIs
-
-Streams are typically recognized as a *URI* following the format
-`<host>[:port][/channel][?token]`.
-
-You encountered the *URI* `demo.hydna.net/1234` in the example above. 
-
-### Architecture
-
-*Transport proxies* are responsible for receiving, routing and transporting
-messages.
-
-*Behaviour instances* are allocated per *domain* and are responsible for
-keeping states, closing streams, denying or authorizing specific uses of
-streams, dealing with signals and more.
-
-Read more about the architecture.
-
 ### Signals
 
 Signals are much like regular messages, but are sent to the *behavior
 instance* instead of being routed to other clients listening for data on a
-stream.
+stream. This is useful when you need access to preserved state or server-side
+logic.
 
 ### Behaviors
 
 Behaviors are one of the pillarstones of Hydna and can be used to set up rules
 for streams and how Hydna should behave when streams are opened or when
 signals are dispatched. While the most typical use-cases can be run without
-involving behaviours, they can be used to unlock great control and in many
+involving behaviors, they can be used to unlock great control and in many
 cases replace the need for hosting server logic.
 
-Every account on Hydna has a behaviour-instance associated with it.
+Behaviors are typically used to implement authentication, logging and more.
 
-Standard library. Plugins.
+### Architecture
 
-Behaviors are powerful. No need to write a server. Can be used for logging,
-authentication, backend plugins etc.
+*Transport proxies* are responsible for receiving, routing and transporting
+messages.
+
+*Behavior instances* are allocated per *domain* and are responsible for
+keeping states, closing streams, denying or authorizing specific uses of
+streams, dealing with signals and more.
 
 ### Transports
 
@@ -126,7 +109,7 @@ with their individual traits and foibles:
 
 - *Hermes Binary Protocol* (fast, not supported in browsers without using
   Flash)
-- *Web Sockets* (fast, not supported by all browsers and devices)
+- *WebSockets* (fast, not supported by all browsers and devices)
 - *HTTP Comet* (slightly slower but compatible with almost anything)
 - *HTTP REST* (limited to pushing, but extremly easy to implement without a
   client library)
@@ -143,3 +126,4 @@ to the client library developer to choose the right transport. In some cases
 multiple transports might be needed -- the JavaScript implementation, for
 instance, automatically detects if it should use native Web Sockets, Flash or
 HTTP Comet.
+
