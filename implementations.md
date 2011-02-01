@@ -6,8 +6,8 @@ in many popular languages.
 <table>
     <thead>
         <tr>
-            <td>Language/Environment</td>
-            <td>Source</td>
+            <th>Language/Environment</th>
+            <th>Source</th>
         </tr>
     </thead>
     <tbody>
