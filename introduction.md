@@ -27,7 +27,7 @@ Library](http://www.hydna.com/documentation/implementations/hydna-js/):
     stream.ondata('data', function(data) {
         // alert('data received on stream!');
     });
-    stream.write('Hello, me!');
+    stream.send('Hello, me!');
 
 ## Key Concepts
 
