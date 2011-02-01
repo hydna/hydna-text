@@ -20,7 +20,7 @@ written in JavaScript, they should be transferable to other programming
 languages.
 
 Example of a JavaScript client using the [JavaScript Client
-Library](/implementations/hydna-js/):
+Library](http://www.hydna.com/documentation/implementations/hydna-js/):
 
     :::javascript
     var stream = new HydnaStream('demo.hydna.net', 'rw');
