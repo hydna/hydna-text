@@ -16,6 +16,10 @@ in many popular languages.
             <td><a href="https://github.com/hydna/as-hydna">GitHub</a></td>
         </tr>
         <tr>
+            <td><a href="/documentation/implementations/cc-hydna/">C++</a></td>
+            <td><a href="https://github.com/hydna/hydna-cc">GitHub</a></td>
+        </tr>
+        <tr>
             <td><a href="/documentation/implementations/node-hydna/">NodeJS</a></td>
             <td><a href="https://github.com/hydna/node-hydna">GitHub</a></td>
         </tr>
