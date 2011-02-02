@@ -12,11 +12,11 @@ in many popular languages.
     </thead>
     <tbody>
         <tr>
-            <td>ActionScript</td>
+            <td><a href="/documentation/implementations/as-hydna/">ActionScript</a></td>
             <td><a href="https://github.com/hydna/as-hydna">GitHub</a></td>
         </tr>
         <tr>
-            <td>NodeJS</td>
+            <td><a href="/documentation/implementations/node-hydna/">NodeJS</a></td>
             <td><a href="https://github.com/hydna/node-hydna">GitHub</a></td>
         </tr>
     </tbody>
