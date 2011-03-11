@@ -24,7 +24,7 @@ in many popular languages.
             <td><a href="https://github.com/hydna/node-hydna">GitHub</a></td>
         </tr>
         <tr>
-            <td><a href="/documentation/implementations/objective-c/">Objective-C</a></td>
+            <td><a href="/documentation/implementations/objc-hydna/">Objective-C</a></td>
             <td><a href="https://github.com/hydna/hydna-objc">GitHub</a></td>
         </tr>
     </tbody>
