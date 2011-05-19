@@ -1,4 +1,4 @@
-# Implementations in other languages than JavaScript
+# Hydna implementations
 
 Hydna is built on an open protocol and there are client libraries available
 in many popular languages.
@@ -18,6 +18,14 @@ in many popular languages.
         <tr>
             <td><a href="/documentation/implementations/cc-hydna/">C++</a></td>
             <td><a href="https://github.com/hydna/hydna-cc">GitHub</a></td>
+        </tr>
+        <tr>
+            <td><a href="/documentation/implementations/java-hydna/">Java</a></td>
+            <td><a href="https://github.com/hydna/hydna-java">GitHub</a></td>
+        </tr>
+        <tr>
+            <td><a href="/documentation/implementations/hydna-js/">Java</a></td>
+            <td><a href="https://github.com/hydna/hydnajs">GitHub</a></td>
         </tr>
         <tr>
             <td><a href="/documentation/implementations/node-hydna/">NodeJS</a></td>
