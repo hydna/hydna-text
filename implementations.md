@@ -24,7 +24,7 @@ in many popular languages.
             <td><a href="https://github.com/hydna/hydna-java">GitHub</a></td>
         </tr>
         <tr>
-            <td><a href="/documentation/implementations/hydna-js/">Java</a></td>
+            <td><a href="/documentation/implementations/hydna-js/">JavaScript</a></td>
             <td><a href="https://github.com/hydna/hydnajs">GitHub</a></td>
         </tr>
         <tr>
