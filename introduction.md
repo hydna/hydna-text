@@ -9,6 +9,8 @@ Real-time-enabling a site or application is the matter of including a client
 library and writing a few lines of code; there's no need to write or install
 server side software.
 
+## Basic Concept
+
 The basic concept is that clients open bi-directional
 [streams](#section-streams) and exchange messages. A prolific example would be
 a chat where clients would open a stream (`mychat.hydna.net` for example).
@@ -29,7 +31,7 @@ Library](http://www.hydna.com/documentation/implementations/hydna-js/):
     });
     stream.send('Hello, me!');
 
-## Key Concepts
+## Key Components
 
 A few of the key concepts -- or components -- of Hydna are outlined below.
 Developers should familiarize themselves with these concepts to featherbed
